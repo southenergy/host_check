@@ -1,0 +1,78 @@
+measurement,TIMESTAMP,start,end,TOTAL
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,64579.3,71075.1,6495.800000000003
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,118594,126168.6,7574.600000000006
+mesg: ttyname failed: Inappropriate ioctl for device
+Error: No such container: plc-datalog-influxDB-1
+mesg: ttyname failed: Inappropriate ioctl for device
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,84538.7,90568.3,6029.600000000006
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,921915.8,921915.8,0
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,147910.2,154868.5,6958.299999999988
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,140007.5,146696.7,6689.200000000012
+mesg: ttyname failed: Inappropriate ioctl for device
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,411815.1,421118,9302.900000000023
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,155614.6,162308.8,6694.1999999999825
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,838194.4,841481.2,3286.79999999993
+mesg: ttyname failed: Inappropriate ioctl for device
+Error: No such container: plc-datalog-influxDB-1
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,843598.1,847272.8,3674.70000000007
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,35250.6,40260.2,5009.5999999999985
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,82585.9,90603.9,8018
+mesg: ttyname failed: Inappropriate ioctl for device
+Error: No such container: plc-datalog-influxDB-1
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,900641.8,904881.2,4239.399999999907
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,725681.5,731547,5865.5
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,852662.5,857106.5,4444
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,915741.7,923827.4,8085.70000000007
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,831897.1,836646.1,4749
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,771096.7,775356.8,4260.100000000093
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,894233.5,900789.4,6555.900000000023
+mesg: ttyname failed: Inappropriate ioctl for device
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,812064.2,817691.7,5627.5
+mesg: ttyname failed: Inappropriate ioctl for device
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,860784,866696.7,5912.699999999953
+mesg: ttyname failed: Inappropriate ioctl for device
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,821756.8,827234.2,5477.399999999907
+mesg: ttyname failed: Inappropriate ioctl for device
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,87993.1,94752.8,6759.699999999997
+mesg: ttyname failed: Inappropriate ioctl for device
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,85637.1,94563.5,8926.399999999994
+mesg: ttyname failed: Inappropriate ioctl for device
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,807209.6,812518.3,5308.70000000007
+mesg: ttyname failed: Inappropriate ioctl for device
+Error: No such container: plc-datalog-influxDB-1
+mesg: ttyname failed: Inappropriate ioctl for device
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,927849.8,937483.8,9634
+mesg: ttyname failed: Inappropriate ioctl for device
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,776964.1,783045.2,6081.099999999977
+mesg: ttyname failed: Inappropriate ioctl for device
+retention policy not found: onemonth
+ERR: retention policy not found: onemonth
+name,time,first,last,last_first
+plcData,2025-06-01T00:00:00.000000001+02:00,844854.3,851302.5,6448.199999999953

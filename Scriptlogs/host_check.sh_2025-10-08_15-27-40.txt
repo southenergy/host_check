@@ -1,0 +1,98 @@
+########################################
+SiteName,HostName,LAN Subnet,plc IP,embedded IP
+########################################
+1 #,SN1,192.168.30.0/26,192.168.30.10,192.168.30.11,192.168.30.14
+SN1 REMOVED
+########################################
+2 ,TREQUERCE,192.168.54.0/24,192.168.54.3,192.168.54.2,192.168.54.1
+host: TREQUERCE ; IP: 192.168.54.2
+PING 192.168.54.2 (192.168.54.2) 56(84) bytes of data.
+64 bytes from 192.168.54.2: icmp_seq=1 ttl=62 time=87.6 ms
+
+--- 192.168.54.2 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 87.604/87.604/87.604/0.000 ms
+##### OS CHECK
+Distributor ID: Debian
+Description: Debian GNU/Linux 9.13 (stretch)
+Release: 9.13
+Codename: stretch
+No LSB modules are available.
+Filesystem Size Used Avail Use% Mounted on
+udev 2.0G 0 2.0G 0% /dev
+tmpfs 394M 16M 379M 4% /run
+/dev/sda1 14G 9.1G 4.2G 69% /
+tmpfs 2.0G 0 2.0G 0% /dev/shm
+tmpfs 5.0M 0 5.0M 0% /run/lock
+tmpfs 2.0G 0 2.0G 0% /sys/fs/cgroup
+/dev/sda6 15G 12G 2.7G 81% /home
+overlay 14G 9.1G 4.2G 69% /var/lib/docker/overlay2/4d5bdc2f6356b830502ecab6c4d088122dba49d40aa5a9a96303c3f6a072a777/merged
+overlay 14G 9.1G 4.2G 69% /var/lib/docker/overlay2/0ac5427e3e6843442f91836f6aca3979913c2662312d9c895ddd01d122e82d2a/merged
+overlay 14G 9.1G 4.2G 69% /var/lib/docker/overlay2/e230fbbe00fe5afdabc06b42597e128b63ad803471cce41965e86fbb61ad37da/merged
+overlay 14G 9.1G 4.2G 69% /var/lib/docker/overlay2/8e95a3d49d068d0c0fd705b3da6f458d394c4831f0a119eb348a4d0067c5c7e7/merged
+overlay 14G 9.1G 4.2G 69% /var/lib/docker/overlay2/be0e6d11318d637e9477bebb4c3d791118949af4cc4b1fcf73efe572b042584b/merged
+tmpfs 394M 0 394M 0% /run/user/0
+overlay 14G 9.1G 4.2G 69% /var/lib/docker/overlay2/8b2d887c3f6d6ac099653ce1e92947c4b33dacc66292b4a12f089c8dffd8d2e6/merged
+rc:0
+##### DOCKER CHECK
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
+0aa7205ead44 kitanonet/tcpdatalog:rclone "rclone -v --progres…" 5 hours ago Up 5 hours rclone
+e976cfd234df kapacitor:1.7.0 "/entrypoint.sh kapa…" 7 months ago Up 5 days 9092/tcp plc-datalog-kapacitor-1
+e889badaa5c6 eclipse-mosquitto:2.0.20 "/docker-entrypoint.…" 7 months ago Up 5 days 0.0.0.0:1883->1883/tcp, 0.0.0.0:9001->9001/tcp plc-datalog-mosquitto-1
+6805ce93198e kitanonet/tcpdatalog:TCP2000_V5.2 "/bin/sh -c '/bin/ba…" 7 months ago Up 5 days (healthy) 0.0.0.0:2000->2000/tcp, 0.0.0.0:2222->22/tcp plc-datalog-tcpdatalog-1
+0b08d7477d6b telegraf:1.32.2 "/entrypoint.sh tele…" 7 months ago Up 5 days 8092/udp, 8125/udp, 8094/tcp, 0.0.0.0:8186->8186/tcp plc-datalog-telegraf-1
+f66b601c130b influxdb:1.11.7 "/entrypoint.sh infl…" 7 months ago Up 5 days 0.0.0.0:8086->8086/tcp plc-datalog-influxDB-1
+rc:0
+##### ENERGY CHECK
+TREQUERCE{"results":[{},{},{}]}
+NO DATA IN DB FOR SELECTED TIME RANGE
+{"results":[{"series":[{"name":"plcData","columns":["time","last"],"values":[["2025-09-04T00:54:10.036+02:00",834819.5]]}]},{}]}
+,NO DATAERRORS:0
+DATA:1
+
+#####DONE
+########################################
+3 #,SN2,192.168.30.0/26,192.168.30.8,192.168.30.50,192.168.30.14
+SN2 REMOVED
+########################################
+4 #,ETAPOWER,192.168.42.0/24,192.168.42.3,192.168.42.2,192.168.42.2
+ETAPOWER REMOVED
+########################################
+5 #,POMARICO,192.168.95.0/24,192.168.95.3,192.168.95.2,192.168.95.1
+POMARICO REMOVED
+########################################
+6
+POMARICO REMOVED
+4
+[
+  '/usr/local/bin/node',
+  '/usr/src/app/googleapi/sheet.js',
+  'Energy_2025-10-01_2025-11-01_2025-10-08_15-27-40',
+  '[["TREQUERCE","192.168.54.2","NO DATA IN RANGE","[{name:plcData,columns:[time,last],values:[[2025-09-04T00:54:10.036+02:00,834819.5]]}]null"],[""],["ERRORS:"]]'
+]
+Energy_2025-10-01_2025-11-01_2025-10-08_15-27-40
+DATA is present: [["TREQUERCE","192.168.54.2","NO DATA IN RANGE","[{name:plcData,columns:[time,last],values:[[2025-09-04T00:54:10.036+02:00,834819.5]]}]null"],[""],["ERRORS:"]]
+[
+  [
+    'TREQUERCE',
+    '192.168.54.2',
+    'NO DATA IN RANGE',
+    '[{name:plcData,columns:[time,last],values:[[2025-09-04T00:54:10.036+02:00,834819.5]]}]null'
+  ],
+  [ '' ],
+  [ 'ERRORS:' ]
+]
+File Id: 1jcFuVgNoCYvSIDZ9lfWs48uxp3m2dFYoh84H-Ll829Q
+{
+  spreadsheetId: '1jcFuVgNoCYvSIDZ9lfWs48uxp3m2dFYoh84H-Ll829Q',
+  updates: {
+    spreadsheetId: '1jcFuVgNoCYvSIDZ9lfWs48uxp3m2dFYoh84H-Ll829Q',
+    updatedRange: 'Sheet1!A1:D3',
+    updatedRows: 3,
+    updatedColumns: 4,
+    updatedCells: 6
+  }
+}
+["TREQUERCE","192.168.54.2","NO DATA IN RANGE","[{name:plcData,columns:[time,last],values:[[2025-09-04T00:54:10.036+02:00,834819.5]]}] null"]
+
+ERRORS:

@@ -1,0 +1,11 @@
+NAME,measurement,TIMESTAMP,start,end,TOTAL
+SN1,PING ERROR
+cannot exec in a stopped state: unknown
+rc:126
+name,time,first
+plcData,2025-08-01T00:00:00.588+02:00,137142.5
+name,time,last
+plcData,2025-08-31T23:59:59.103+02:00,146728.1
+name,time,Total
+plcData,2025-08-01T00:00:00.000000001+02:00,9585.600000000006
+rc:0

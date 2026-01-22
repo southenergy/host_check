@@ -1,0 +1,52 @@
+########################################
+SiteName,HostName,LAN Subnet,plc IP,embedded IP
+SiteName HostName LAN Subnet plc IP embedded IP
+1 SiteName
+Header 1 : SiteName
+2 HostName
+Header 2 : HostName
+3 LAN Subnet
+Header 3 : LAN Subnet
+4 plc IP
+Header 4 : plc IP
+5 embedded IP
+Header 5 : embedded IP
+########################################
+1 ,SN1,192.168.30.0/26,192.168.30.10,192.168.30.11
+SN1 192.168.30.0/26 192.168.30.10 192.168.30.11
+1
+Field 1 SiteName : 
+2 SN1
+Field 2 HostName : SN1
+3 192.168.30.0/26
+Field 3 LAN Subnet : 192.168.30.0/26
+4 192.168.30.10
+Field 4 plc IP : 192.168.30.10
+5 192.168.30.11
+Field 5 embedded IP : 192.168.30.11
+########################################
+2 ,SN2,192.168.30.0/26,192.168.30.8,192.168.30.50
+SN2 192.168.30.0/26 192.168.30.8 192.168.30.50
+1
+Field 1 SiteName : 
+2 SN2
+Field 2 HostName : SN2
+3 192.168.30.0/26
+Field 3 LAN Subnet : 192.168.30.0/26
+4 192.168.30.8
+Field 4 plc IP : 192.168.30.8
+5 192.168.30.50
+Field 5 embedded IP : 192.168.30.50
+########################################
+3 ,PTRC,192.168.30.0/26,192.168.30.5,192.168.30.51
+PTRC 192.168.30.0/26 192.168.30.5 192.168.30.51
+1
+Field 1 SiteName : 
+2 PTRC
+Field 2 HostName : PTRC
+3 192.168.30.0/26
+Field 3 LAN Subnet : 192.168.30.0/26
+4 192.168.30.5
+Field 4 plc IP : 192.168.30.5
+5 192.168.30.51
+Field 5 embedded IP : 192.168.30.51

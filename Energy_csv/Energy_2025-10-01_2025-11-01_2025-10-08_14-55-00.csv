@@ -1,0 +1,5 @@
+NAME,Time First,First Counter,Time Last,Last Counter,Timestamp,Energy
+SN1,192.168.30.11,PING EMBEDDED FAILED,192.168.30.14,PING ROUTER OK
+TREQUERCE,NO DATA,2025-09-04T00:54:10.036+02:00,834819.5
+ETAPOWER,192.168.42.2,ERROR,bash: /etc/bash.bashrc: Input/output error Error: No such container: plc-datalog-influxDB-1
+POMARICO,192.168.95.2,PING EMBEDDED FAILED,192.168.95.1,PING ROUTER OK

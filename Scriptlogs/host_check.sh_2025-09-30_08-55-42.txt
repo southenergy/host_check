@@ -1,0 +1,172 @@
+########################################
+SiteName,HostName,LAN Subnet,plc IP,embedded IP
+SiteName HostName LAN Subnet plc IP embedded IP
+1 SiteName
+Header 1 : SiteName
+2 HostName
+Header 2 : HostName
+3 LAN Subnet
+Header 3 : LAN Subnet
+4 plc IP
+Header 4 : plc IP
+5 embedded IP
+Header 5 : embedded IP
+host:  ; IP: 
+PING ERROR
+########################################
+1 ,SN1,192.168.30.0/26,192.168.30.10,192.168.30.11
+SN1 192.168.30.0/26 192.168.30.10 192.168.30.11
+1
+Field 1 SiteName : 
+2 SN1
+Field 2 HostName : SN1
+3 192.168.30.0/26
+Field 3 LAN Subnet : 192.168.30.0/26
+4 192.168.30.10
+Field 4 plc IP : 192.168.30.10
+5 192.168.30.11
+Field 5 embedded IP : 192.168.30.11
+host: SN1 ; IP: 192.168.30.11
+PING 192.168.30.11 (192.168.30.11) 56(84) bytes of data.
+From 10.0.21.28 icmp_seq=1 Destination Host Unreachable
+
+--- 192.168.30.11 ping statistics ---
+1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms
+
+PING ERROR
+########################################
+2 ,SN2,192.168.30.0/26,192.168.30.8,192.168.30.50
+SN2 192.168.30.0/26 192.168.30.8 192.168.30.50
+1
+Field 1 SiteName : 
+2 SN2
+Field 2 HostName : SN2
+3 192.168.30.0/26
+Field 3 LAN Subnet : 192.168.30.0/26
+4 192.168.30.8
+Field 4 plc IP : 192.168.30.8
+5 192.168.30.50
+Field 5 embedded IP : 192.168.30.50
+host: SN2 ; IP: 192.168.30.50
+PING 192.168.30.50 (192.168.30.50) 56(84) bytes of data.
+64 bytes from 192.168.30.50: icmp_seq=1 ttl=62 time=75.5 ms
+
+--- 192.168.30.50 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 75.506/75.506/75.506/0.000 ms
+#####OS CHECK
+1 Linux SN2 4.19.0-27-amd64 #1 SMP Debian 4.19.316-1 (2024-06-25) x86_64
+2
+3 The programs included with the Debian GNU/Linux system are free software;
+4 the exact distribution terms for each program are described in the
+5 individual files in /usr/share/doc/*/copyright.
+6
+7 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+8 permitted by applicable law.
+9 Distributor ID: Debian
+10 Description: Debian GNU/Linux 10 (buster)
+11 Release: 10
+12 Codename: buster
+13 Filesystem Size Used Avail Use% Mounted on
+14 udev 2.0G 0 2.0G 0% /dev
+15 tmpfs 394M 31M 363M 8% /run
+16 /dev/sda1 14G 7.8G 5.4G 60% /
+17 tmpfs 2.0G 0 2.0G 0% /dev/shm
+18 tmpfs 5.0M 0 5.0M 0% /run/lock
+19 tmpfs 2.0G 0 2.0G 0% /sys/fs/cgroup
+20 /dev/sda6 15G 15G 0 100% /home
+21 overlay 14G 7.8G 5.4G 60% /var/lib/docker/overlay2/1c9776358fcdcb51e78a1b84d36e28ee0285fa7e5daf799ac6b3d80b31a423e9/merged
+22 overlay 14G 7.8G 5.4G 60% /var/lib/docker/overlay2/ab45af6e9a11cb3508b5049162764fbfe9fb1bc1274a36eb0326cc5696a0b7ee/merged
+23 overlay 14G 7.8G 5.4G 60% /var/lib/docker/overlay2/63a6184e39f53a95d4a75e939e522a4cdfece295044e513a1ec6a3a56d61d990/merged
+24 overlay 14G 7.8G 5.4G 60% /var/lib/docker/overlay2/a047b42ad75088e337e418bba4b76e74e210926864e381a1cc1756b77b43be87/merged
+25 tmpfs 394M 0 394M 0% /run/user/0
+26 0
+#####DOCKER CHECK
+1 Linux SN2 4.19.0-27-amd64 #1 SMP Debian 4.19.316-1 (2024-06-25) x86_64
+2
+3 The programs included with the Debian GNU/Linux system are free software;
+4 the exact distribution terms for each program are described in the
+5 individual files in /usr/share/doc/*/copyright.
+6
+7 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+8 permitted by applicable law.
+9 CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
+10 1066c8aa249f kapacitor:1.7.0 "/entrypoint.sh kapa…" 7 months ago Up 2 weeks 9092/tcp plc-datalog-kapacitor-1
+11 641679f45b23 eclipse-mosquitto:2.0.20 "/docker-entrypoint.…" 7 months ago Up 2 weeks 0.0.0.0:1883->1883/tcp, :::1883->1883/tcp, 0.0.0.0:9001->9001/tcp, :::9001->9001/tcp plc-datalog-mosquitto-1
+12 49c5d74f7665 telegraf:1.32.2 "/entrypoint.sh tele…" 7 months ago Up 2 weeks 8092/udp, 8125/udp, 8094/tcp, 0.0.0.0:8186->8186/tcp, :::8186->8186/tcp plc-datalog-telegraf-1
+13 905d59c11741 influxdb:1.11.7 "/entrypoint.sh infl…" 7 months ago Up 2 weeks 0.0.0.0:8086->8086/tcp, :::8086->8086/tcp plc-datalog-influxDB-1
+14 0
+#####ENERGY CHECK
+1 cannot exec in a stopped state: unknown
+2 126
+########################################
+3 ,PTRC,192.168.30.0/26,192.168.30.5,192.168.30.51
+PTRC 192.168.30.0/26 192.168.30.5 192.168.30.51
+1
+Field 1 SiteName : 
+2 PTRC
+Field 2 HostName : PTRC
+3 192.168.30.0/26
+Field 3 LAN Subnet : 192.168.30.0/26
+4 192.168.30.5
+Field 4 plc IP : 192.168.30.5
+5 192.168.30.51
+Field 5 embedded IP : 192.168.30.51
+host: PTRC ; IP: 192.168.30.51
+PING 192.168.30.51 (192.168.30.51) 56(84) bytes of data.
+64 bytes from 192.168.30.51: icmp_seq=1 ttl=62 time=88.6 ms
+
+--- 192.168.30.51 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 88.632/88.632/88.632/0.000 ms
+#####OS CHECK
+1 Linux PTRC 6.1.0-31-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.128-1 (2025-02-07) x86_64
+2
+3 The programs included with the Debian GNU/Linux system are free software;
+4 the exact distribution terms for each program are described in the
+5 individual files in /usr/share/doc/*/copyright.
+6
+7 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+8 permitted by applicable law.
+9 Distributor ID: Debian
+10 Description: Debian GNU/Linux 12 (bookworm)
+11 Release: 12
+12 Codename: bookworm
+13 Filesystem Size Used Avail Use% Mounted on
+14 udev 1.9G 0 1.9G 0% /dev
+15 tmpfs 390M 1.1M 389M 1% /run
+16 /dev/sda1 14G 9.4G 3.8G 72% /
+17 tmpfs 2.0G 0 2.0G 0% /dev/shm
+18 tmpfs 5.0M 0 5.0M 0% /run/lock
+19 /dev/sda6 15G 9.6G 4.2G 70% /home
+20 overlay 14G 9.4G 3.8G 72% /var/lib/docker/overlay2/c6c30d783e8c690f20caf71153b78c4ca9adbb043f4dd73517ae8305e43cd99c/merged
+21 overlay 14G 9.4G 3.8G 72% /var/lib/docker/overlay2/6b6b2b07aa564b432113a769f51a99a111119c185b03250525566187e7020ad8/merged
+22 overlay 14G 9.4G 3.8G 72% /var/lib/docker/overlay2/daa3c88bc16948e8fa0adcb9c47ac1f46e341f19e0f68c661a273f5cdbc1c161/merged
+23 overlay 14G 9.4G 3.8G 72% /var/lib/docker/overlay2/c0b951cf7b27067e53ee7df8cff67c77d14017f9e5d83cc4573359ba48526102/merged
+24 overlay 14G 9.4G 3.8G 72% /var/lib/docker/overlay2/bad67b09d3ad338c3e295b5aa984e5ffa9f5a54d7d41dedaf0aa22cae3b37f72/merged
+25 tmpfs 390M 0 390M 0% /run/user/0
+26 0
+#####DOCKER CHECK
+1 Linux PTRC 6.1.0-31-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.128-1 (2025-02-07) x86_64
+2
+3 The programs included with the Debian GNU/Linux system are free software;
+4 the exact distribution terms for each program are described in the
+5 individual files in /usr/share/doc/*/copyright.
+6
+7 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+8 permitted by applicable law.
+9 CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
+10 44f9c67e0d2e kapacitor:1.7.0 "/entrypoint.sh kapa…" 7 months ago Up 6 weeks 9092/tcp plc-datalog-kapacitor-1
+11 ce5f8eb7186d eclipse-mosquitto:2.0.20 "/docker-entrypoint.…" 7 months ago Up 6 weeks 0.0.0.0:1883->1883/tcp, [::]:1883->1883/tcp, 0.0.0.0:9001->9001/tcp, [::]:9001->9001/tcp plc-datalog-mosquitto-1
+12 bda23789ad24 telegraf:1.32.2 "/entrypoint.sh tele…" 7 months ago Up 6 weeks 8092/udp, 8125/udp, 8094/tcp, 0.0.0.0:8186->8186/tcp, [::]:8186->8186/tcp plc-datalog-telegraf-1
+13 14c77142d839 kitanonet/tcpdatalog:TCP2000_V5.2 "/bin/sh -c '/bin/ba…" 7 months ago Up 4 weeks (healthy) 0.0.0.0:2000->2000/tcp, [::]:2000->2000/tcp, 0.0.0.0:2222->22/tcp, [::]:2222->22/tcp plc-datalog-tcpdatalog-1
+14 843bdce78d4b influxdb:1.11.7 "/entrypoint.sh infl…" 7 months ago Up 6 weeks 0.0.0.0:8086->8086/tcp, [::]:8086->8086/tcp plc-datalog-influxDB-1
+15 0
+#####ENERGY CHECK
+1 name,time,first
+2 plcData,2025-08-01T00:00:00.588+02:00,137142.5
+3 name,time,last
+4 plcData,2025-08-31T23:59:59.103+02:00,146728.1
+5 name,time,Total
+6 plcData,2025-08-01T00:00:00.000000001+02:00,9585.600000000006
+7 0

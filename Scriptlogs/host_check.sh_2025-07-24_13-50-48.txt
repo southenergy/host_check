@@ -1,0 +1,365 @@
+1 SiteName,HostName,LAN Subnet,plc IP,embedded IP
+SiteName HostName LAN Subnet plc IP embedded IP
+1 SiteName
+Header 1 : SiteName
+2 HostName
+Header 2 : HostName
+3 LAN Subnet
+Header 3 : LAN Subnet
+4 plc IP
+Header 4 : plc IP
+5 embedded IP
+Header 5 : embedded IP
+host:  ; IP: 
+PING ERROR
+2 ,SN1,192.168.30.0/26,192.168.30.10,192.168.30.11
+SN1 192.168.30.0/26 192.168.30.10 192.168.30.11
+1
+Field 1 SiteName : 
+2 SN1
+Field 2 HostName : SN1
+3 192.168.30.0/26
+Field 3 LAN Subnet : 192.168.30.0/26
+4 192.168.30.10
+Field 4 plc IP : 192.168.30.10
+5 192.168.30.11
+Field 5 embedded IP : 192.168.30.11
+host: SN1 ; IP: 192.168.30.11
+PING 192.168.30.11 (192.168.30.11) 56(84) bytes of data.
+From 10.0.21.28 icmp_seq=1 Destination Host Unreachable
+
+--- 192.168.30.11 ping statistics ---
+1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms
+
+PING ERROR
+3 ,SN2,192.168.30.0/26,192.168.30.8,192.168.30.50
+SN2 192.168.30.0/26 192.168.30.8 192.168.30.50
+1
+Field 1 SiteName : 
+2 SN2
+Field 2 HostName : SN2
+3 192.168.30.0/26
+Field 3 LAN Subnet : 192.168.30.0/26
+4 192.168.30.8
+Field 4 plc IP : 192.168.30.8
+5 192.168.30.50
+Field 5 embedded IP : 192.168.30.50
+host: SN2 ; IP: 192.168.30.50
+PING 192.168.30.50 (192.168.30.50) 56(84) bytes of data.
+64 bytes from 192.168.30.50: icmp_seq=1 ttl=62 time=78.4 ms
+
+--- 192.168.30.50 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 78.447/78.447/78.447/0.000 ms
+No LSB modules are available.
+0
+DONE
+4 ,PTRC,192.168.30.0/26,192.168.30.5,192.168.30.51
+PTRC 192.168.30.0/26 192.168.30.5 192.168.30.51
+1
+Field 1 SiteName : 
+2 PTRC
+Field 2 HostName : PTRC
+3 192.168.30.0/26
+Field 3 LAN Subnet : 192.168.30.0/26
+4 192.168.30.5
+Field 4 plc IP : 192.168.30.5
+5 192.168.30.51
+Field 5 embedded IP : 192.168.30.51
+host: PTRC ; IP: 192.168.30.51
+PING 192.168.30.51 (192.168.30.51) 56(84) bytes of data.
+64 bytes from 192.168.30.51: icmp_seq=1 ttl=62 time=81.0 ms
+
+--- 192.168.30.51 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 80.990/80.990/80.990/0.000 ms
+0
+DONE
+5 ,STRN,192.168.30.0/26,192.168.30.2,192.168.30.52
+STRN 192.168.30.0/26 192.168.30.2 192.168.30.52
+1
+Field 1 SiteName : 
+2 STRN
+Field 2 HostName : STRN
+3 192.168.30.0/26
+Field 3 LAN Subnet : 192.168.30.0/26
+4 192.168.30.2
+Field 4 plc IP : 192.168.30.2
+5 192.168.30.52
+Field 5 embedded IP : 192.168.30.52
+host: STRN ; IP: 192.168.30.52
+PING 192.168.30.52 (192.168.30.52) 56(84) bytes of data.
+64 bytes from 192.168.30.52: icmp_seq=1 ttl=62 time=78.3 ms
+
+--- 192.168.30.52 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 78.292/78.292/78.292/0.000 ms
+mesg: ttyname failed: Inappropriate ioctl for device
+No LSB modules are available.
+mesg: ttyname failed: Inappropriate ioctl for device
+0
+mesg: ttyname failed: Inappropriate ioctl for device
+Error: No such container: plc-datalog-influxDB-1
+DONE
+6 ,SN3,192.168.30.0/26,192.168.30.60,192.168.30.53
+SN3 192.168.30.0/26 192.168.30.60 192.168.30.53
+1
+Field 1 SiteName : 
+2 SN3
+Field 2 HostName : SN3
+3 192.168.30.0/26
+Field 3 LAN Subnet : 192.168.30.0/26
+4 192.168.30.60
+Field 4 plc IP : 192.168.30.60
+5 192.168.30.53
+Field 5 embedded IP : 192.168.30.53
+host: SN3 ; IP: 192.168.30.53
+PING 192.168.30.53 (192.168.30.53) 56(84) bytes of data.
+64 bytes from 192.168.30.53: icmp_seq=1 ttl=62 time=86.7 ms
+
+--- 192.168.30.53 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 86.716/86.716/86.716/0.000 ms
+mesg: ttyname failed: Inappropriate ioctl for device
+No LSB modules are available.
+mesg: ttyname failed: Inappropriate ioctl for device
+0
+mesg: ttyname failed: Inappropriate ioctl for device
+DONE
+7 ,SN4,192.168.30.0/26,192.168.30.55,192.168.30.54
+SN4 192.168.30.0/26 192.168.30.55 192.168.30.54
+1
+Field 1 SiteName : 
+2 SN4
+Field 2 HostName : SN4
+3 192.168.30.0/26
+Field 3 LAN Subnet : 192.168.30.0/26
+4 192.168.30.55
+Field 4 plc IP : 192.168.30.55
+5 192.168.30.54
+Field 5 embedded IP : 192.168.30.54
+host: SN4 ; IP: 192.168.30.54
+PING 192.168.30.54 (192.168.30.54) 56(84) bytes of data.
+64 bytes from 192.168.30.54: icmp_seq=1 ttl=62 time=77.0 ms
+
+--- 192.168.30.54 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 76.963/76.963/76.963/0.000 ms
+No LSB modules are available.
+0
+DONE
+8 ,ZINGAD,192.168.31.0/24,192.168.31.3,192.168.31.2
+ZINGAD 192.168.31.0/24 192.168.31.3 192.168.31.2
+1
+Field 1 SiteName : 
+2 ZINGAD
+Field 2 HostName : ZINGAD
+3 192.168.31.0/24
+Field 3 LAN Subnet : 192.168.31.0/24
+4 192.168.31.3
+Field 4 plc IP : 192.168.31.3
+5 192.168.31.2
+Field 5 embedded IP : 192.168.31.2
+host: ZINGAD ; IP: 192.168.31.2
+PING 192.168.31.2 (192.168.31.2) 56(84) bytes of data.
+64 bytes from 192.168.31.2: icmp_seq=1 ttl=62 time=1166 ms
+
+--- 192.168.31.2 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 1166.216/1166.216/1166.216/0.000 ms
+0
+DONE
+9 ,BOVINO,192.168.32.0/24,192.168.32.3,192.168.32.2
+BOVINO 192.168.32.0/24 192.168.32.3 192.168.32.2
+1
+Field 1 SiteName : 
+2 BOVINO
+Field 2 HostName : BOVINO
+3 192.168.32.0/24
+Field 3 LAN Subnet : 192.168.32.0/24
+4 192.168.32.3
+Field 4 plc IP : 192.168.32.3
+5 192.168.32.2
+Field 5 embedded IP : 192.168.32.2
+host: BOVINO ; IP: 192.168.32.2
+PING 192.168.32.2 (192.168.32.2) 56(84) bytes of data.
+64 bytes from 192.168.32.2: icmp_seq=1 ttl=62 time=299 ms
+
+--- 192.168.32.2 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 298.967/298.967/298.967/0.000 ms
+No LSB modules are available.
+0
+DONE
+10 ,LENA,192.168.33.0/24,192.168.33.3,192.168.33.2
+LENA 192.168.33.0/24 192.168.33.3 192.168.33.2
+1
+Field 1 SiteName : 
+2 LENA
+Field 2 HostName : LENA
+3 192.168.33.0/24
+Field 3 LAN Subnet : 192.168.33.0/24
+4 192.168.33.3
+Field 4 plc IP : 192.168.33.3
+5 192.168.33.2
+Field 5 embedded IP : 192.168.33.2
+host: LENA ; IP: 192.168.33.2
+PING 192.168.33.2 (192.168.33.2) 56(84) bytes of data.
+
+--- 192.168.33.2 ping statistics ---
+1 packets transmitted, 0 received, 100% packet loss, time 0ms
+
+PING ERROR
+11 ,MINICHILLO,192.168.34.0/24,192.168.34.3,192.168.34.2
+MINICHILLO 192.168.34.0/24 192.168.34.3 192.168.34.2
+1
+Field 1 SiteName : 
+2 MINICHILLO
+Field 2 HostName : MINICHILLO
+3 192.168.34.0/24
+Field 3 LAN Subnet : 192.168.34.0/24
+4 192.168.34.3
+Field 4 plc IP : 192.168.34.3
+5 192.168.34.2
+Field 5 embedded IP : 192.168.34.2
+host: MINICHILLO ; IP: 192.168.34.2
+PING 192.168.34.2 (192.168.34.2) 56(84) bytes of data.
+64 bytes from 192.168.34.2: icmp_seq=1 ttl=62 time=997 ms
+
+--- 192.168.34.2 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 996.588/996.588/996.588/0.000 ms
+mesg: ttyname failed: Inappropriate ioctl for device
+No LSB modules are available.
+mesg: ttyname failed: Inappropriate ioctl for device
+0
+mesg: ttyname failed: Inappropriate ioctl for device
+DONE
+12 ,ZINGAG,192.168.35.0/24,192.168.35.3,192.168.35.2
+ZINGAG 192.168.35.0/24 192.168.35.3 192.168.35.2
+1
+Field 1 SiteName : 
+2 ZINGAG
+Field 2 HostName : ZINGAG
+3 192.168.35.0/24
+Field 3 LAN Subnet : 192.168.35.0/24
+4 192.168.35.3
+Field 4 plc IP : 192.168.35.3
+5 192.168.35.2
+Field 5 embedded IP : 192.168.35.2
+host: ZINGAG ; IP: 192.168.35.2
+PING 192.168.35.2 (192.168.35.2) 56(84) bytes of data.
+64 bytes from 192.168.35.2: icmp_seq=1 ttl=62 time=226 ms
+
+--- 192.168.35.2 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 225.987/225.987/225.987/0.000 ms
+0
+DONE
+13 ,LENA2,192.168.36.0/24,192.168.36.3,192.168.36.2
+LENA2 192.168.36.0/24 192.168.36.3 192.168.36.2
+1
+Field 1 SiteName : 
+2 LENA2
+Field 2 HostName : LENA2
+3 192.168.36.0/24
+Field 3 LAN Subnet : 192.168.36.0/24
+4 192.168.36.3
+Field 4 plc IP : 192.168.36.3
+5 192.168.36.2
+Field 5 embedded IP : 192.168.36.2
+host: LENA2 ; IP: 192.168.36.2
+PING 192.168.36.2 (192.168.36.2) 56(84) bytes of data.
+
+--- 192.168.36.2 ping statistics ---
+1 packets transmitted, 0 received, 100% packet loss, time 0ms
+
+PING ERROR
+14 ,ALDO2,192.168.37.0/24,192.168.37.3,192.168.37.2
+ALDO2 192.168.37.0/24 192.168.37.3 192.168.37.2
+1
+Field 1 SiteName : 
+2 ALDO2
+Field 2 HostName : ALDO2
+3 192.168.37.0/24
+Field 3 LAN Subnet : 192.168.37.0/24
+4 192.168.37.3
+Field 4 plc IP : 192.168.37.3
+5 192.168.37.2
+Field 5 embedded IP : 192.168.37.2
+host: ALDO2 ; IP: 192.168.37.2
+PING 192.168.37.2 (192.168.37.2) 56(84) bytes of data.
+64 bytes from 192.168.37.2: icmp_seq=1 ttl=62 time=191 ms
+
+--- 192.168.37.2 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 190.836/190.836/190.836/0.000 ms
+0
+DONE
+15 ,RITOLI,192.168.38.0/24,192.168.38.3,192.168.38.2
+RITOLI 192.168.38.0/24 192.168.38.3 192.168.38.2
+1
+Field 1 SiteName : 
+2 RITOLI
+Field 2 HostName : RITOLI
+3 192.168.38.0/24
+Field 3 LAN Subnet : 192.168.38.0/24
+4 192.168.38.3
+Field 4 plc IP : 192.168.38.3
+5 192.168.38.2
+Field 5 embedded IP : 192.168.38.2
+host: RITOLI ; IP: 192.168.38.2
+PING 192.168.38.2 (192.168.38.2) 56(84) bytes of data.
+64 bytes from 192.168.38.2: icmp_seq=1 ttl=62 time=357 ms
+
+--- 192.168.38.2 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 357.320/357.320/357.320/0.000 ms
+mesg: ttyname failed: Inappropriate ioctl for device
+No LSB modules are available.
+mesg: ttyname failed: Inappropriate ioctl for device
+0
+mesg: ttyname failed: Inappropriate ioctl for device
+Error: No such container: plc-datalog-influxDB-1
+DONE
+16 ,ALDO3,192.168.39.0/24,192.168.39.3,192.168.39.2
+ALDO3 192.168.39.0/24 192.168.39.3 192.168.39.2
+1
+Field 1 SiteName : 
+2 ALDO3
+Field 2 HostName : ALDO3
+3 192.168.39.0/24
+Field 3 LAN Subnet : 192.168.39.0/24
+4 192.168.39.3
+Field 4 plc IP : 192.168.39.3
+5 192.168.39.2
+Field 5 embedded IP : 192.168.39.2
+host: ALDO3 ; IP: 192.168.39.2
+PING 192.168.39.2 (192.168.39.2) 56(84) bytes of data.
+64 bytes from 192.168.39.2: icmp_seq=1 ttl=62 time=138 ms
+
+--- 192.168.39.2 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 137.830/137.830/137.830/0.000 ms
+0
+DONE
+17 ,BICCARI,192.168.40.0/24,192.168.40.3,192.168.40.2
+BICCARI 192.168.40.0/24 192.168.40.3 192.168.40.2
+1
+Field 1 SiteName : 
+2 BICCARI
+Field 2 HostName : BICCARI
+3 192.168.40.0/24
+Field 3 LAN Subnet : 192.168.40.0/24
+4 192.168.40.3
+Field 4 plc IP : 192.168.40.3
+5 192.168.40.2
+Field 5 embedded IP : 192.168.40.2
+host: BICCARI ; IP: 192.168.40.2
+PING 192.168.40.2 (192.168.40.2) 56(84) bytes of data.
+64 bytes from 192.168.40.2: icmp_seq=1 ttl=62 time=245 ms
+
+--- 192.168.40.2 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 245.416/245.416/245.416/0.000 ms
+0

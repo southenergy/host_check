@@ -1,0 +1,96 @@
+########################################
+SiteName,HostName,LAN Subnet,plc IP,embedded IP
+########################################
+1 ,SN1,192.168.30.0/26,192.168.30.10,192.168.30.11
+host: SN1 ; IP: 192.168.30.11
+PING 192.168.30.11 (192.168.30.11) 56(84) bytes of data.
+From 10.0.21.28 icmp_seq=1 Destination Host Unreachable
+
+--- 192.168.30.11 ping statistics ---
+1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms
+
+PING ERROR
+########################################
+2 ,SN2,192.168.30.0/26,192.168.30.8,192.168.30.50
+host: SN2 ; IP: 192.168.30.50
+PING 192.168.30.50 (192.168.30.50) 56(84) bytes of data.
+64 bytes from 192.168.30.50: icmp_seq=1 ttl=62 time=95.7 ms
+
+--- 192.168.30.50 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 95.712/95.712/95.712/0.000 ms
+##### OS CHECK
+No LSB modules are available.
+Filesystem Size Used Avail Use% Mounted on
+udev 2.0G 0 2.0G 0% /dev
+tmpfs 394M 31M 363M 8% /run
+/dev/sda1 14G 7.8G 5.4G 60% /
+tmpfs 2.0G 0 2.0G 0% /dev/shm
+tmpfs 5.0M 0 5.0M 0% /run/lock
+tmpfs 2.0G 0 2.0G 0% /sys/fs/cgroup
+/dev/sda6 15G 15G 0 100% /home
+overlay 14G 7.8G 5.4G 60% /var/lib/docker/overlay2/1c9776358fcdcb51e78a1b84d36e28ee0285fa7e5daf799ac6b3d80b31a423e9/merged
+overlay 14G 7.8G 5.4G 60% /var/lib/docker/overlay2/ab45af6e9a11cb3508b5049162764fbfe9fb1bc1274a36eb0326cc5696a0b7ee/merged
+overlay 14G 7.8G 5.4G 60% /var/lib/docker/overlay2/63a6184e39f53a95d4a75e939e522a4cdfece295044e513a1ec6a3a56d61d990/merged
+overlay 14G 7.8G 5.4G 60% /var/lib/docker/overlay2/a047b42ad75088e337e418bba4b76e74e210926864e381a1cc1756b77b43be87/merged
+tmpfs 394M 0 394M 0% /run/user/0
+rc:0
+##### DOCKER CHECK
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
+1066c8aa249f kapacitor:1.7.0 "/entrypoint.sh kapa…" 7 months ago Up 2 weeks 9092/tcp plc-datalog-kapacitor-1
+641679f45b23 eclipse-mosquitto:2.0.20 "/docker-entrypoint.…" 7 months ago Up 2 weeks 0.0.0.0:1883->1883/tcp, :::1883->1883/tcp, 0.0.0.0:9001->9001/tcp, :::9001->9001/tcp plc-datalog-mosquitto-1
+49c5d74f7665 telegraf:1.32.2 "/entrypoint.sh tele…" 7 months ago Up 2 weeks 8092/udp, 8125/udp, 8094/tcp, 0.0.0.0:8186->8186/tcp, :::8186->8186/tcp plc-datalog-telegraf-1
+905d59c11741 influxdb:1.11.7 "/entrypoint.sh infl…" 7 months ago Up 2 weeks 0.0.0.0:8086->8086/tcp, :::8086->8086/tcp plc-datalog-influxDB-1
+rc:0
+##### ENERGY CHECK
+rc:0
+cannot exec in a stopped state: unknown
+SN2
+#####DONE
+########################################
+3 ,PTRC,192.168.30.0/26,192.168.30.5,192.168.30.51
+host: PTRC ; IP: 192.168.30.51
+PING 192.168.30.51 (192.168.30.51) 56(84) bytes of data.
+64 bytes from 192.168.30.51: icmp_seq=1 ttl=62 time=93.6 ms
+
+--- 192.168.30.51 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 93.619/93.619/93.619/0.000 ms
+##### OS CHECK
+Filesystem Size Used Avail Use% Mounted on
+udev 1.9G 0 1.9G 0% /dev
+tmpfs 390M 1.1M 389M 1% /run
+/dev/sda1 14G 9.4G 3.8G 72% /
+tmpfs 2.0G 0 2.0G 0% /dev/shm
+tmpfs 5.0M 0 5.0M 0% /run/lock
+/dev/sda6 15G 9.7G 4.2G 71% /home
+overlay 14G 9.4G 3.8G 72% /var/lib/docker/overlay2/c6c30d783e8c690f20caf71153b78c4ca9adbb043f4dd73517ae8305e43cd99c/merged
+overlay 14G 9.4G 3.8G 72% /var/lib/docker/overlay2/6b6b2b07aa564b432113a769f51a99a111119c185b03250525566187e7020ad8/merged
+overlay 14G 9.4G 3.8G 72% /var/lib/docker/overlay2/daa3c88bc16948e8fa0adcb9c47ac1f46e341f19e0f68c661a273f5cdbc1c161/merged
+overlay 14G 9.4G 3.8G 72% /var/lib/docker/overlay2/c0b951cf7b27067e53ee7df8cff67c77d14017f9e5d83cc4573359ba48526102/merged
+overlay 14G 9.4G 3.8G 72% /var/lib/docker/overlay2/bad67b09d3ad338c3e295b5aa984e5ffa9f5a54d7d41dedaf0aa22cae3b37f72/merged
+tmpfs 390M 0 390M 0% /run/user/0
+rc:0
+##### DOCKER CHECK
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
+44f9c67e0d2e kapacitor:1.7.0 "/entrypoint.sh kapa…" 7 months ago Up 6 weeks 9092/tcp plc-datalog-kapacitor-1
+ce5f8eb7186d eclipse-mosquitto:2.0.20 "/docker-entrypoint.…" 7 months ago Up 6 weeks 0.0.0.0:1883->1883/tcp, [::]:1883->1883/tcp, 0.0.0.0:9001->9001/tcp, [::]:9001->9001/tcp plc-datalog-mosquitto-1
+bda23789ad24 telegraf:1.32.2 "/entrypoint.sh tele…" 7 months ago Up 6 weeks 8092/udp, 8125/udp, 8094/tcp, 0.0.0.0:8186->8186/tcp, [::]:8186->8186/tcp plc-datalog-telegraf-1
+14c77142d839 kitanonet/tcpdatalog:TCP2000_V5.2 "/bin/sh -c '/bin/ba…" 7 months ago Up 4 weeks (healthy) 0.0.0.0:2000->2000/tcp, [::]:2000->2000/tcp, 0.0.0.0:2222->22/tcp, [::]:2222->22/tcp plc-datalog-tcpdatalog-1
+843bdce78d4b influxdb:1.11.7 "/entrypoint.sh infl…" 7 months ago Up 6 weeks 0.0.0.0:8086->8086/tcp, [::]:8086->8086/tcp plc-datalog-influxDB-1
+rc:0
+##### ENERGY CHECK
+rc:0
+name,time,first
+rc:0
+plcData,2025-08-01T00:00:00.588+02:00,137142.5
+rc:0
+name,time,last
+rc:0
+plcData,2025-08-31T23:59:59.103+02:00,146728.1
+rc:0
+name,time,Total
+rc:0
+plcData,2025-08-01T00:00:00.000000001+02:00,9585.600000000006
+PTRC
+#####DONE
