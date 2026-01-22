@@ -1,2 +1,0 @@
-NAME,Time First,First Counter,Time Last,Last Counter,Timestamp,Energy
-TREQUERCE,192.168.54.2,ERROR,{"results":[{"error":"invalid operation: time and *influxql.StringLiteral are not compatible"},{"error":"not executed"},{"error":"not executed"}]} ERR: invalid operation: time and *influxql.StringLiteral are not compatible invalid operation: time and *influxql.StringLiteral are not compatible

@@ -1,5 +1,0 @@
-measurement,TIMESTAMP,start,end,TOTAL
-mesg: ttyname failed: Inappropriate ioctl for device
-Error: No such container: plc-datalog-influxDB-1
-mesg: ttyname failed: Inappropriate ioctl for device
-mesg: ttyname failed: Inappropriate ioctl for device

@@ -1,7 +1,0 @@
-NAME,Time First,First Counter,Time Last,Last Counter,Timestamp,Energy
-SN1,PING FAILED
-SN2
-ETAPOWER,ERROR,bash: /etc/bash.bashrc: Input/output error
-Error: No such container: plc-datalog-influxDB-1
-ETAPOWER,ERROR,bash: /etc/bash.bashrc: Input/output error
-Error: No such container: plc-datalog-influxDB-1

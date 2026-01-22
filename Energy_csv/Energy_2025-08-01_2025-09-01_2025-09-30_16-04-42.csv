@@ -1,4 +1,0 @@
-NAME,First Time,First Counter,Last Time,Last Counter,Timestamp,Energy
-SN1,PING ERROR
-SN2,ERROR?,cannot exec in a stopped state: unknown
-PTRC,2025-08-01T00:00:00.588+02:00,137142.5,2025-08-31T23:59:59.103+02:00,146728.1,2025-08-01T00:00:00.000000001+02:00,9585.600000000006
