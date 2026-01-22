@@ -5,7 +5,39 @@ ts=$(TZ=Europe/Rome date "+%F_%T" | sed 's|[:]|-|g')
 logFile="$0_$ts.txt"
 start="2025-12-01"
 end="2026-01-01"
+
+function getStartEnd(){
+
+    local curY=$(date +%Y)
+    local curM=$(date +%m)
+    local curD=$(date +%d)
+
+    local Y=$curY
+    local M=$(echo $curM | sed 's|^[0]*||')
+    local D=$(echo $curD | sed 's|^[0]*||')
+
+    if [[ $D -eq 1 ]]
+    then
+        if [[ $M -eq 1 ]]
+        then
+            local start="$((Y-1))-12-01"
+        else
+            local prevM=$(printf "%02d" $((M-1)))
+            local start="${curY}-${prevM}-01"
+        fi
+    else
+        local start="${curY}-${curM}-01"
+    fi
+
+    echo "$start ${curY}-${curM}-${curD}"
+}
+
+
+startend=$(getStartEnd)
+start=${startend// */}
+end=${startend//* /}
 energyFile="Energy_${start}_${end}_${ts}.csv"
+echo $energyFile && exit
 #echo "NAME,measurement,TIMESTAMP,start,end,TOTAL" > $energyFile
 echo "NAME,Time First,First Counter,Time Last,Last Counter,Timestamp,Energy" > $energyFile
 
