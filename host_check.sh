@@ -32,10 +32,31 @@ function getStartEnd(){
     echo "$start ${curY}-${curM}-${curD}"
 }
 
+start=$1
+end=$2
 
-startend=$(getStartEnd)
-start=${startend// */}
-end=${startend//* /}
+if (echo $start | grep -E "^[0-9]+-[0-9]+-[0-9]+$") && (echo $end | grep -E "^[0-9]+-[0-9]+-[0-9]+$")
+then
+    echo "Period from input"
+else
+    echo "Period calculated"
+    startend=$(getStartEnd)
+    start=${startend// */}
+    end=${startend//* /}
+fi
+
+startEpoch=$(date -d $start +%s)
+endEpoch=$(date -d $end +%s)
+
+periodOK=0
+if [[ $endEpoch -gt $startEpoch ]]
+then
+    echo "Period OK"
+    periodOK=1
+else
+    echo "Period NOT OK" && exit
+fi
+
 energyFile="Energy_${start}_${end}_${ts}.csv"
 echo $energyFile && exit
 #echo "NAME,measurement,TIMESTAMP,start,end,TOTAL" > $energyFile
@@ -276,7 +297,7 @@ do
             #    #echo $host","$line
             #    echo $line
             #done | tee -a $energyFile && echo "#####DONE" 
-            getEnergyJson $ip
+            (($periodOK)) && getEnergyJson $ip
             echo "#####DONE"
         fi
     else
