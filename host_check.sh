@@ -54,11 +54,11 @@ then
     echo "Period OK"
     periodOK=1
 else
-    echo "Period NOT OK" && exit
+    echo "Period NOT OK"
 fi
 
 energyFile="Energy_${start}_${end}_${ts}.csv"
-echo $energyFile && exit
+echo $energyFile
 #echo "NAME,measurement,TIMESTAMP,start,end,TOTAL" > $energyFile
 echo "NAME,Time First,First Counter,Time Last,Last Counter,Timestamp,Energy" > $energyFile
 
