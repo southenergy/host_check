@@ -2,9 +2,19 @@
 
 listFile="host_list.csv"
 ts=$(TZ=Europe/Rome date "+%F_%T" | sed 's|[:]|-|g')
-logFile="$0_$ts.txt"
-start="2025-12-01"
-end="2026-01-01"
+#logFile="$0_$ts.txt"
+
+#echo ${0/\.sh/}
+scriptName=$(basename ${0/\.sh/})
+scriptFolder=${0%\/$scriptName*}
+echo $scriptName
+echo $scriptFolder
+logFolder="${scriptFolder}/Scriptlogs"
+logFile="${logFolder}/${scriptName}_$ts.log"
+echo $logFile
+
+#start="2025-12-01"
+#end="2026-01-01"
 
 function getStartEnd(){
 
@@ -57,8 +67,10 @@ else
     echo "Period NOT OK"
 fi
 
-energyFile="Energy_${start}_${end}_${ts}.csv"
+energyFolder="${scriptFolder}/Energy_csv"
+energyFile="${energyFolder}/Energy_${start}_${end}_${ts}.csv"
 echo $energyFile
+exit
 #echo "NAME,measurement,TIMESTAMP,start,end,TOTAL" > $energyFile
 echo "NAME,Time First,First Counter,Time Last,Last Counter,Timestamp,Energy" > $energyFile
 
