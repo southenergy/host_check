@@ -70,7 +70,7 @@ fi
 energyFolder="${scriptFolder}/Energy_csv"
 energyFile="${energyFolder}/Energy_${start}_${end}_${ts}.csv"
 echo $energyFile
-exit
+
 #echo "NAME,measurement,TIMESTAMP,start,end,TOTAL" > $energyFile
 echo "NAME,Time First,First Counter,Time Last,Last Counter,Timestamp,Energy" > $energyFile
 
