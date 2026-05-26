@@ -1,0 +1,2 @@
+SiteName,HostName,LAN Subnet,plc IP,embedded IP
+,MATERA2,192.168.94.0/24,192.168.94.3,192.168.94.2,192.168.94.1

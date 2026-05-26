@@ -1,6 +1,9 @@
 #!/bin/bash
 
 listFile="host_list.csv"
+#listFile="host_list_matera2.csv"
+checkDataAndMove=1
+
 ts=$(TZ=Europe/Rome date "+%F_%T" | sed 's|[:]|-|g')
 #logFile="$0_$ts.txt"
 
@@ -13,8 +16,11 @@ logFolder="${scriptFolder}/Scriptlogs"
 logFile="${logFolder}/${scriptName}_$ts.log"
 echo $logFile
 
+countersFolder="${scriptFolder}/Counters"
+
 #start="2025-12-01"
 #end="2026-01-01"
+
 
 function getStartEnd(){
 
@@ -130,8 +136,6 @@ function getEnergy(){
     echo "${PIPESTATUS[@]}"
 }
 
-
-
 function getEnergyJson(){
     local ip=$1
     local measurement="plcData"
@@ -179,7 +183,7 @@ function getEnergyJson(){
             if [[  "$jsonDataHeaders" == "$rowHeader" ]] 
             then
                 echo "SAME Header"
-                #sheetData=$jsonDataValues
+                #sheetData=$jsonDataValues 
                 
             else
                 echo "new Header \"$jsonDataHeaders\" \"$rowHeader\""
@@ -220,11 +224,39 @@ function getEnergyJson(){
     fi
     #docker exec node-dev node googleapi/index.js "$sheetData"
     
-    echo "ERRORS:${#errorDataArray[@]}"
+    echo -e "\nERRORS:${#errorDataArray[@]}"
     echo "DATA:${#sheetDataArray[@]}"
     printf "\n" | tee -a $energyFile
 
 }
+
+#####TO COMPLETE AND ADD => REPLACED BY loadScriptAndExecInScreen.sh
+# function moveFiles{
+#     echo "MOVE compressed csv"
+#     folder=/home/TCPdatalog/AppData/DataLog/ ; 
+
+#     cmd='docker run --rm --entrypoint rclone --name rclone -it \
+#     -v '$folder':'$folder' -v /root/rclone/rclone-service-identity-1ac8f925e71f.json:/root/.rclone/rclone-service-identity-1ac8f925e71f.json:ro kitanonet/tcpdatalog:rclone \
+#     -v --progress move $folder gdrive:/'$HOSTNAME$folder' --include "*.gz"'
+
+#     testcmd='docker run --rm -it \
+#     -v '$folder':'$folder' -v /root/rclone/rclone-service-identity-1ac8f925e71f.json:/root/.rclone/rclone-service-identity-1ac8f925e71f.json:ro alpine \
+#     echo '$HOSTNAME$folder
+
+#     ssh root@192.168.30.50 screen -ls
+#     rc=$?
+#     ((rc)) && echo "creating screen session" && ssh root@192.168.30.50 screen -dmS test
+#     ssh root@192.168.30.50 screen -dr test -X exec "$testcmd"
+
+#     ssh root@192.168.30.50 screen -dr test -X exec "$testcmd"
+# }
+
+function checkScreenSession(){
+    echo 'screen -ls ; rc=$? ;printf "%s script " $HOSTNAME; \
+    if (($rc)) ; then echo "TERMINATED" ; df -h ; exit ; \
+    else  echo "RUNNING" ; sleep 30 ; fi' | ssh -o ConnectTimeout=10 -qT  root@$ip bash &
+}
+
 
 (
 
@@ -275,6 +307,7 @@ do
         rc=$?
         if [[ $rc -eq 0 ]]
         then
+
             echo "host: $hostName ; IP: $ip"
             ping -c 1 $ip
             if (($?))
@@ -297,20 +330,53 @@ do
             #echo $?
             #printf "$hostName,%s\n" $(getEnergy $ip) | tee -a $energyFile && echo "DONE"   
 
-            echo "#####${HOST} OS CHECK"
+            echo "#####${hostName} OS CHECK"
             systemCheck $ip 2>&1 | while read line ; do ((s++)) ; echo $line ; done
 
-            echo "#####${HOST} DOCKER CHECK"
+            echo "#####${hostName} DOCKER CHECK"
             dockerCheck $ip 2>&1 | while read line ; do ((d++)) ; echo $line ; done 
 
-            echo "#####${HOST} ENERGY CHECK"
+            echo "#####${hostName} ENERGY CHECK"
             #getEnergy $ip 2>&1 | while read line
             #do ((e++))
             #    #echo $host","$line
             #    echo $line
             #done | tee -a $energyFile && echo "#####DONE" 
             (($periodOK)) && getEnergyJson $ip
-            echo "#####DONE"
+
+            echo "#####${hostName} CHECK TCPsocket and crontab"
+            echo 'systemctl status TCPsocket ; crontab -l' |  ssh root@$ip bash
+
+
+            echo "#####${hostName} GET CSV DATA"
+            cat $scriptFolder"/getCsvData.sh" | ssh -o ConnectTimeout=10 -qT root@${ip} bash > "${countersFolder}/getCsvData_${hostName}.log" 2>&1 
+            #countersFile=$(ssh -o ConnectTimeout=10 -qT root@${ip} [[ -f /home/TCPdatalog/AppData/DataLog/counters.csv ]] ; then echo "/home/TCPdatalog/AppData/DataLog/counters.csv" ; elif  [[ -f /home/plc/counters.csv ]] ; then echo "/home/plc/counters.csv" ; fi ')
+            
+            countersFile=""
+            found=0
+            if echo 'stat -c "%n %s" /home/TCPdatalog/AppData/counters.csv' | ssh -o ConnectTimeout=10 -qT root@${ip} bash
+            then
+                countersFile=/home/TCPdatalog/AppData/counters.csv
+                found=1
+            elif echo 'stat -c "%n %s" /home/plc/counters.csv' | ssh -o ConnectTimeout=10 -qT root@${ip} bash
+            then
+                countersFile=/home/plc/counters.csv
+                found=1
+            else 
+                echo "Counters File NOT FOUND" 
+            fi
+            echo $countersFile
+            ((found)) && scp -o ConnectTimeout=10 -qT root@${ip}:${countersFile} "${countersFolder}/${hostName}_counters_${ts}.csv"
+
+            if [[ $checkDataAndMove -eq 1 ]]
+            then
+                echo "#####${hostName} CHECK DATA AND MOVE ${ip} ${hostName}"
+                (bash $scriptFolder"/loadScriptAndExecInScreen.sh" ${ip} ${hostName} 2>&1 &)
+                echo "#####${hostName} DONE"
+                #exit
+            else
+                echo "checkDataAndMove NOT ENABLED"
+            fi
         fi
     else
         echo "$hostName REMOVED"
@@ -318,10 +384,12 @@ do
 
 done < $listFile #| tee -a $logFile #### WITH PIPE sheetDataArray NOT VISIBLE OUTSIDE
 
+echo "#####WRITING TO SHEET"
 #echo "[${sheetDataArray[@]}]" | sed 's|\] \[|\],\[|g'  | tr -d '\n'
 jsonData=$(echo "[${sheetDataArray[@]} [\"\"] [\"ERRORS:\"] ${errorDataArray[@]}]" | sed 's|\] \[|\],\[|g' | tr -d '\n' | jq -c)
 
 docker exec node-dev node googleapi/sheet.js "Energy_${start}_${end}_${ts}" "$jsonData"
+echo "#####DONE"
 
 for i in ${!sheetDataArray[@]}
 do
