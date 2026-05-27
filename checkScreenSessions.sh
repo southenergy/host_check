@@ -115,9 +115,9 @@ do
 
     echo "${hostName} ${ip}"
 
-   echo 'screen -ls ; rc=$? ;printf "%s script " $hostName; \
-   if (($rc)) ; then echo "TERMINATED" ; \
-   else  echo "RUNNING" ; fi' | ssh -o ConnectTimeout=10 -qT  root@$ip bash
+    (echo 'while screen -ls ; do rc=$? ;  \
+    echo $rc ; echo "script '${hostName}' RUNNING" ; sleep 10 ;\
+    done ; echo "script '${hostName}' TERMINATED"' | ssh -o ConnectTimeout=10 -qT  root@$ip bash)&
 
 done <host_list.csv
 
